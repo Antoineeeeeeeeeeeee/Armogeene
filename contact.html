@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactez-nous - Armognène</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Futura:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+</head>
+<body>
+    <header>
+        <img src="logo armogène blanc.png" alt="Logo Armognène" class="logo">
+        <nav>
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Produits</a></li>
+                <li><a href="#">Témoignages</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="contact-title">
+            <h1>Contactez-nous.</h1>
+        </section>
+        <section class="contact-form">
+            <form>
+                <label for="nom">Nom</label>
+                <input type="text" id="nom" name="nom" required>
+                
+                <label for="prenom">Prénom</label>
+                <input type="text" id="prenom" name="prenom" required>
+                
+                <label for="email">Adresse mail</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="question">Posez-nous votre question</label>
+                <textarea id="question" name="question" required></textarea>
+                
+                <button type="submit">Envoyer</button>
+            </form>
+        </section>
+        <section class="map">
+            <h2>Notre Adresse</h2>
+            <p>3 Imp. Nationale, 75013 PARIS</p>
+            <div id="map"></div>
+        </section>
+    </main>
+    <footer>
+        <img src="logo armogène blanc.png" alt="Logo Armognène" class="logo">
+        <nav>
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Produits</a></li>
+                <li><a href="#">Témoignages</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </footer>
+    <script>
+        function initMap() {
+            var paris = { lat: 48.8566, lng: 2.3522 };
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                center: paris
+            });
+            var marker = new google.maps.Marker({
+                position: paris,
+                map: map
+            });
+        }
+        google.maps.event.addDomListener(window, 'load', initMap);
+    </script>
+</body>
+</html>
